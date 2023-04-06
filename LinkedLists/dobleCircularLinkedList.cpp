@@ -23,8 +23,8 @@ class dCircularLinkedList {
       tail = NULL;
     }
     linkedListNode* createNode    (int);
-    linkedListNode** findIndirect (int);
-    linkedListNode** rfindIndirect(int);
+    linkedListNode** findIndirect (int,bool &);
+    linkedListNode** rfindIndirect(int,bool &);
     void pushFront    (int);
     void pushBack     (int);
     void pushBeforeX  (int,int);
@@ -102,6 +102,7 @@ void dCircularLinkedList::pushBeforeX (int value, int nodex) {
 
 void dCircularLinkedList::pushAfterX (int value, int nodex) {
     if (!head) return;
+    bool flag = false;
     linkedListNode** indirectNode = rfindIndirect(nodex,flag); //revisar la impleentacion
     if (!flag) {
       std::cout << "No se encontro el nodo.\n";
@@ -147,7 +148,8 @@ void dCircularLinkedList::popBack () {
 
 void dCircularLinkedList::popX (int value) {
     if (!head) return;
-    linkedListNode** indirect = findIndirect(value);
+    bool flag = false;
+    linkedListNode** indirect = findIndirect(value,flag);
     if (!(*indirect)) { // null -> busqueda fallida 
       std::cout << "No se encontro el nodo.\n";
       return;
@@ -178,7 +180,8 @@ void dCircularLinkedList::popBeforeX (int value) {
       std::cout << "Nodo anterior no existente en la Lista\n";
       return;
     }
-    linkedListNode** indirect = findIndirect(value);
+    bool flag = false;
+    linkedListNode** indirect = findIndirect(value,flag);
     if(!(*indirect)) {
       std::cout << "No se encontro el Nodo.\n";
       return;
@@ -202,7 +205,8 @@ void dCircularLinkedList::popAfterX (int value) {
       std::cout << "Nodo posterior no existente en la Lista\n";
       return;
     }
-    linkedListNode** indirect = rfindIndirect(value);
+    bool flag = false;
+    linkedListNode** indirect = rfindIndirect(value,flag);
     if (!(*indirect)) {
       std::cout << "No se encontro el Nodo\n";
       return;

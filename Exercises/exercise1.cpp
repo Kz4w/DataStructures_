@@ -14,11 +14,6 @@ void pushAfter (linkedListNode* node, int value) {
         walk = walk -> prev;
 }
 
-
-
-
-
-
 int main () {
 
 
