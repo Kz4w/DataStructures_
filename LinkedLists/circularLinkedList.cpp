@@ -120,9 +120,9 @@ void circularLinkedList::popFront () {
 void circularLinkedList::popBack () {
     if (!head) return;
 
-    linkedListNode** walk = head; 
+    linkedListNode** walk = &head; 
     while ((*walk) -> next != head)
-      walk = (*walk) -> next;
+      walk = &(*walk) -> next;
     linkedListNode* tmp = (*walk);
 
     if (head -> next == head) head == NULL;
@@ -203,7 +203,7 @@ void circularLinkedList::popAfterX (int value) {
       std::cout << "No se encontro el Nodo\n";
       return;
     } 
-    else if (!(*indirect) -> next == head ) {
+    else if (!((*indirect) -> next == head)) {
       std::cout << "Nodo posterior no existente en la Lista\n";
       return;
     }
