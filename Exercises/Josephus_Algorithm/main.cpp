@@ -13,6 +13,9 @@ int jhosephus (int n,int k) {
 
 
 int main () {
+    /*
+        Se modificaron cosas ...
+    */
     int personas = 10;
     bool flow = false;
     int jump = 2;
