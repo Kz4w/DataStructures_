@@ -227,3 +227,7 @@ linkedListNode** circularLinkedList::findIndirect (int value, bool &flag) {
     }
     return indirect;
 }
+
+/*
+  Nada que agregar ...
+*/
